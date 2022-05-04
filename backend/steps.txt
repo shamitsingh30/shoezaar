@@ -1,0 +1,5 @@
+1. npm init
+2. folder structure
+3. install express and fire the server
+4. set the view engine and the view folder
+5. include partials and layouts(express-ejs-layouts)
