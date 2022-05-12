@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const port = 8000;
+const cors = require('cors');
 const expressLayouts = require('express-ejs-layouts');
 const db = require('./config/mongoose');
 const passport = require('passport');
@@ -9,6 +10,7 @@ const passportLocal = require('./config/passport-local-strategy');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 
+app.use(cors());
 // app.use(express.static('views'));
 app.use(express.urlencoded({extended: true}));
 

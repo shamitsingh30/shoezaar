@@ -1,1 +1,20 @@
-<h1>Index</h1>
+
+<div class="container my-5">
+    <div class="row">
+        <h2 class="mx-5">All</h2>
+        <div class="col d-flex justify-content-around flex-wrap">
+            <% for(let i=0; i<50; i++){ %>
+                <div class="card m-5" style="width: 18rem;">
+                    <img src="<%= props[i].images_list[0] %>" class="card-img-top my-4" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= props[i].title %></h5>
+                        <h6 class="card-subtitle mb-2 text-muted"><%= props[i].brand %></h6>
+                        <p class="card-text">$<%= props[i].price %></p>
+                        <p class="card-text"><%= props[i].product_details %></p>
+                        <a href="/product/info/<%= props[i].asin %>" class="btn btn-primary">Buy Now</a>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</div>
