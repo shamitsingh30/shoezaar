@@ -7,12 +7,16 @@ const expressLayouts = require('express-ejs-layouts');
 const db = require('./config/mongoose');
 const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
+const passportJWT = require('./config/passport-jwt-strategy');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
+const bodyParser = require('body-parser');
 
 app.use(cors());
 // app.use(express.static('views'));
-app.use(express.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({extended: false}))
+
+app.use(bodyParser.json());
 
 app.use(expressLayouts);
 app.set('layout extractStyles', true);
