@@ -9,11 +9,12 @@ let opts = {
     secretOrKey: 'topsecret'
 };
 
-passport.use(new JWTStrategy(opts, function(jwtPayLoad, done){
-    User.findById(jwtPayLoad._id, function(err, user){
-        if(user){
+passport.use(new JWTStrategy(opts, function (jwtPayLoad, done) {
+    User.findById(jwtPayLoad._id, function (err, user) {
+        if (user) {
             return done(null, user);
-        }else{
+        } else {
+            console.log(err);
             return done(null, false);
         }
     })

@@ -1,14 +1,19 @@
 import './App.css';
 import Header from './components/header';
 import Home from './components/Home';
+import { useSelector } from 'react-redux';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
+import { selectUser } from './features/userSlice';
 
 function App() {
+
+  const user = useSelector(selectUser);
+
   return (
     <Router>
-      <Header/>
+      <Header />
       <div className="App">
         <Routes>
           <Route exact path='/home' element={< Home />}></Route>
@@ -17,7 +22,6 @@ function App() {
         </Routes>
       </div>
     </Router>
-    
   );
 }
 
